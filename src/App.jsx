@@ -22,6 +22,8 @@ function App() {
     );
   };
 
+  // subtract quantity
+
   const subtractQuantity = (id) => {
     setData((prevData) =>
       prevData.map((item) =>
@@ -32,10 +34,13 @@ function App() {
     );
   };
 
+  // remove an item from the cart.
+
   const removeItem = (id) => {
     setData((prevData) => prevData.filter((item) => item.id !== id));
   };
 
+  // calculate the total price of items in cart
   const calculateTotalPrice = () => {
     if (data) {
       return data.reduce((total, item) => {
