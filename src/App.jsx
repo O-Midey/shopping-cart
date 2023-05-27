@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 
 function App() {
   //default states
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  /// functions
+  ///////<----------------- functions ---------------->////////
+
   // add quantity
   const addQuantity = (id) => {
     setData((prevData) =>
@@ -43,7 +45,9 @@ function App() {
     return 0;
   };
   console.log(calculateTotalPrice());
+
   // load data from API and store in state
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -70,7 +74,9 @@ function App() {
         <h2>Shopping Cart</h2>
       </header>
       {loading ? (
-        <p>Loading...</p>
+        <div className="spinner">
+          <ClipLoader color="#7312ce" size={64} speedMultiplier={1} />
+        </div>
       ) : (
         <div>
           {data.map((item) => (
@@ -126,7 +132,6 @@ function App() {
         <div className="flex">
           <h3>Total</h3>
           <h3>
-            {" "}
             ${Math.round(calculateTotalPrice() + 0.01 * calculateTotalPrice())}
           </h3>
         </div>

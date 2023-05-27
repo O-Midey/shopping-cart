@@ -110,7 +110,14 @@ button {
   border-radius: 5px;
   outline: none;
   border: none;
-  background-color: rgb(115, 18, 206);
+  background-color: #7312ce;
   color: white;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.spinner {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
