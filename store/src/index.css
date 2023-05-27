@@ -1,0 +1,116 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 20px;
+  background-color: rgb(115, 18, 206);
+  color: white;
+}
+.product-div {
+  padding: 30px 0;
+  border-top: 1px solid rgb(206, 206, 206);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-image {
+  padding: 10px;
+  width: 20%;
+  height: 100px;
+  border: 1px solid rgb(206, 206, 206);
+  border-radius: 5px;
+}
+
+.product-description {
+  height: 100%;
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.product-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 45px;
+}
+
+.buttons {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.decrease-btn,
+.increase-btn {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+  width: 10px;
+  height: 10px;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.increase-btn {
+  background-color: green;
+}
+
+.order-summary {
+  text-align: center;
+  padding: 30px;
+  background-color: rgba(177, 177, 177, 0.342);
+}
+
+.order-summary > * {
+  margin-top: 20px;
+}
+
+div.flex {
+  padding: 20px 0;
+  margin: 20px;
+  border-bottom: 1px solid rgb(196, 196, 196);
+}
+div.flex > p {
+  color: grey;
+}
+
+button {
+  margin: 0;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: rgb(115, 18, 206);
+  color: white;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
