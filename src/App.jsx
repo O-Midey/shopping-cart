@@ -74,76 +74,77 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
       <header>
         <h2>Shopping Cart</h2>
       </header>
-      {loading ? (
-        <div className="spinner">
-          <ClipLoader color="#7312ce" size={64} speedMultiplier={1} />
-        </div>
-      ) : (
-        <div>
-          {data.map((item) => (
-            <div key={item.id} className="product-div">
-              <img src={item.image} className="product-image" />
-              <div className="product-description">
-                <p className="product-name">{item.title}</p>
-                <div className="buttons">
+      <div className="container">
+        {loading ? (
+          <div className="spinner">
+            <ClipLoader color="#7312ce" size={64} speedMultiplier={1} />
+          </div>
+        ) : (
+          <div>
+            {data.map((item) => (
+              <div key={item.id} className="product-div">
+                <img src={item.image} className="product-image" />
+                <div className="product-description">
+                  <p className="product-name">{item.title}</p>
+                  <div className="buttons">
+                    <p
+                      onClick={() => subtractQuantity(item.id)}
+                      className="decrease-btn"
+                    >
+                      -
+                    </p>
+                    <p>Qty {item.quantity}</p>
+                    <p
+                      onClick={() => addQuantity(item.id)}
+                      className="increase-btn"
+                    >
+                      +
+                    </p>
+                  </div>
+                </div>
+                <div className="product-price">
+                  <p>${item.price * item.quantity || item.price}</p>
                   <p
-                    onClick={() => subtractQuantity(item.id)}
-                    className="decrease-btn"
+                    onClick={() => removeItem(item.id)}
+                    style={{ color: "purple", cursor: "pointer" }}
                   >
-                    -
-                  </p>
-                  <p>Qty {item.quantity}</p>
-                  <p
-                    onClick={() => addQuantity(item.id)}
-                    className="increase-btn"
-                  >
-                    +
+                    Remove
                   </p>
                 </div>
               </div>
-              <div className="product-price">
-                <p>${item.price * item.quantity || item.price}</p>
-                <p
-                  onClick={() => removeItem(item.id)}
-                  style={{ color: "purple", cursor: "pointer" }}
-                >
-                  Remove
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+        <div className="order-summary">
+          <h3>Order Summary</h3>
+          <div className="flex">
+            <p>Subotal</p>
+            <h5> ${calculateTotalPrice()}</h5>
+          </div>
+          <div className="flex">
+            <p>Shipping Estimate</p>
+            <h5> $0</h5>
+          </div>
+          <div className="flex">
+            <p>Tax Estimate</p>
+            <h5> ${0.01 * calculateTotalPrice()}</h5>
+          </div>
+          <div className="flex">
+            <h3>Total</h3>
+            <h3>
+              $
+              {Math.round(calculateTotalPrice() + 0.01 * calculateTotalPrice())}
+            </h3>
+          </div>
 
-      {/* order summary section */}
-      <div className="order-summary">
-        <h3>Order Summary</h3>
-        <div className="flex">
-          <p>Subotal</p>
-          <h5> ${calculateTotalPrice()}</h5>
+          <button>Checkout</button>
         </div>
-        <div className="flex">
-          <p>Shipping Estimate</p>
-          <h5> $0</h5>
-        </div>
-        <div className="flex">
-          <p>Tax Estimate</p>
-          <h5> ${0.01 * calculateTotalPrice()}</h5>
-        </div>
-        <div className="flex">
-          <h3>Total</h3>
-          <h3>
-            ${Math.round(calculateTotalPrice() + 0.01 * calculateTotalPrice())}
-          </h3>
-        </div>
-
-        <button>Checkout</button>
       </div>
-    </div>
+    </>
   );
 }
 
